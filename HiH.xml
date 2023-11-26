@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="HiH.xslt"?>
+<course>
+	<author>
+		<name>student's name</name>
+		<surname>student's surname</surname>
+	</author>
+	<classes kind="lecture" >
+		<component id="1">
+			<topic>Hypertext and hypermedia</topic>
+			<theme>Hypertext &amp; hypermedia</theme>
+			<theme>HTML CSS</theme>
+			<theme>XML</theme>
+			<theme>XML Schema</theme>
+			<theme>DTD</theme>
+			<theme>XSLT</theme>
+			<score>30</score>
+		</component>
+	</classes>
+	<classes kind="laboratory" obligatory="yes">
+		<component id="1">
+			<topic>HTML + CSS</topic>
+			<theme>structure of the page</theme>
+			<theme>links</theme>
+			<theme>forms</theme>
+			<theme>css</theme>
+			<score>10</score>
+		</component>
+		<component id="2">
+			<topic>XML + XML Schema</topic>
+			<theme>correctly formed XML file</theme>
+			<theme>creating a hierarchy</theme>
+			<theme>declaring elements, attributes</theme>
+			<theme>defining types</theme>
+			<theme>validating XML file</theme>
+			<score>10</score>
+		</component>
+		<component id="3">
+			<topic>XSLT</topic>
+			<theme>XML -> HTML transformation</theme>
+			<theme>XML -> XML transformation</theme>
+			<score>10</score>
+		</component>	
+	</classes>
+	<classes kind="project">
+		<component id="1">
+			<topic>HTML, XML, XSLT</topic>
+			<score>20</score>
+		</component>
+		<component id="2">
+			<topic>XML, XML Schema, DTD</topic>
+			<score>20</score>
+		</component>
+	</classes>
+	<information>
+		<facts about="hypertext and hypermedia">
+			<author>
+				<name>Jakob</name>
+				<surname>Nielsen</surname>
+			</author>
+			<title>Multimedia and Hypertext: The Internet and Beyond</title>
+			<text>
+				Vannevar Bush (1890-1974) is normally considered the "grandfather" of hypertext, since he proposed a system we would now describe as a hypertext system as long ago as 1945. This system, the Memex ("memory extender"), was never implemented, however, but was only described in theory in Bush's papers. Bush actually developed some of his ideas for the Memex in 1932 and 1933 and finally wrote a draft paper on it in 1939. For various reasons [Nyce and Kahn 1989, 1991] this manuscript was not published until 1945, when it appeared in the Atlantic Monthly under the title " As We May Think." Bush described the Memex as "a sort of mechanized private file and library" and as "a device in which an individual stores his books, records, and communications, and which is mechanized so that it may be consulted with exceeding speed and flexibility." The Memex would store this information on microfilm, which would be kept in the user's desk. This desk was intended to have several microfilm projection positions to enable the user to compare different microfilms, in a manner very similar to the windows that became popular on personal computers more than forty years later. The Memex would have a scanner to enable the user to input new material, and it would also allow the user to make handwritten marginal notes and comments. But Bush envisaged that most of the Memex contents are purchased on microfilm ready for insertion. Books of all sorts, pictures, current periodicals, newspapers, are thus obtained and dropped into place. Business correspondence takes the same path.Actually we have not yet reached the state of hypertext development where there is a significant amount of preprocessed information for sale that can be integrated with a user's existing hypertext structure. The main reason Vannevar Bush developed his proposal for the Memex was that he was worried about the explosion of scientific information which made it impossible even for specialists to follow developments in a discipline. Of course, this situation is much worse now, but even in 1945 Bush discussed the need to allow people to find information more easily than was possible on paper. After having described his various ideas for microfilm and projection equipment, he stated that. All this is conventional, except for the projection forward of present-day mechanisms and gadgetry. It affords an immediate step, however, to associative indexing, the basic idea of which is a provision whereby any item may be caused at will to select immediately and automatically another. This is the essential feature of the memex. The process of tying two items together is the important thing.
+				<subtitle>Hypertext, in other words!</subtitle>
+				In addition to the establishment of individual links, Bush wanted the Memex to support the building of trails through the material in the form of a set of links that would combine information of relevance for a specific perspective on a specific topic. He even forecast the establishment of a new profession of "trail blazers,""who find delight in the task of establishing useful trails through the enormous mass of the common record." In current terminology, these trail blazers would be people who add value to published collections of text and other information by providing a web of hypertext links to supplement the basic information. But since we do not even have a market for basic hypertexts yet, we unfortunately have to do without professional trail blazers. Amateur trail blazers have come into existence in recent years in the form of people who list WWW sites they find interesting on their home page.The building of trails would also be an activity for the ordinary Memex user, and using his microfilm ideas, Bush assumed that such a user might want to photograph a whole trail for friends to put in their Memexes. Again we should note that current technology is not up to Bush's vision, since it is almost impossible to transfer selected subsets of a hypertext structure to another hypertext, especially if the two hypertexts are based on different systems. Vannevar Bush was a famous scientist in his days and was the science advisor to President Roosevelt during the Second World War, when science-based issues like inventing nuclear weapons were of great importance. After "As We May Think" ran in the Atlantic Monthly , it caused considerable discussion, and both Time and Life ran stories on the Memex. Life even had an artist draw up illustrations of how the Memex would look and a scenario of its projection positions as the user was completing a link. Doug Engelbart, who later became a pioneer in the development of interactive computing and invented the mouse, got part of his inspiration by reading Bush's article while waiting for a ship home from the Philippines in 1945. In spite of all this early interest surrounding the Memex it never got built. As hinted above, our current computer technology is still not able to support Bush's vision in its entirety. We do have computers with most of the Memex functionality but they are based on a completely different technology from the microfilm discussed by Bush. It is interesting to recall that Bush was one of the pioneering scientists in the development of computer hardware and was famous for such inventions as the MIT Differential Analyzer in 1931. Alan Kay from Apple has suggested that the areas about which we know most may be those where we are most in accurate in predicting the future, since we see all the problems inherent in them. Therefore Bush could gladly dream about impossible advances in microfilm technology but he would have been reluctant to publish an article about personal computing since he "knew" that computers were huge things costing millions of dollars.
+			</text>
+		</facts>
+		<links>
+			<link source="https://www.w3schools.com/html/">HTML w3schools</link>
+			<link source="https://www.w3schools.com/xml/default.asp">XML w3schools</link>
+			<link source="https://enauczanie.pg.edu.pl/moodle/">Moodle</link>
+		</links>
+		<media>
+			<image source="img/Vannevar-Bush.jpg">Vannevar Bush</image>
+		</media>
+	</information>
+</course>
