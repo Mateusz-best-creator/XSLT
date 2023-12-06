@@ -186,7 +186,7 @@
 
 	<xsl:template match="author">
 	<!-- Step 4 -->
-		Copyright 2019, <xsl:value-of select="name"/> 
+		Copyright 2019, <xsl:value-of select="name"/>_<xsl:value-of select="surname"/>
 	</xsl:template>
 
 	<!-- 
