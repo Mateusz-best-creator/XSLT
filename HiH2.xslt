@@ -4,14 +4,25 @@
 	
 	<xsl:template match="/">
 		<xsl:element name="webpages">
+			<xsl:element name="student">
+				<xsl:attribute name="name">
+					<xsl:value-of select="course/author/name" />
+				</xsl:attribute>
+				<xsl:attribute name="surname">
+					<xsl:value-of select="course/author/surname" />
+				</xsl:attribute>
+			</xsl:element>
 			<xsl:apply-templates select="//link"/>
 		</xsl:element>
 	</xsl:template>
+
+
 
 	<xsl:template match="link">
 		<xsl:element name="address">
 			<xsl:value-of select="@source" />
 		</xsl:element>
 	</xsl:template>
+
 
 	</xsl:stylesheet>

@@ -5,6 +5,24 @@
     <xsl:output method="html" indent="yes"/>
 
 	<!-- 
+		Step 8
+	 -->
+	 <!-- Template for lecture themes -->
+	<xsl:template match="theme[ancestor::classes/@kind='lecture']">
+		<xsl:for-each select="//classes[@kind='lecture']/component/theme">
+			<!-- Sort the themes alphabetically -->
+			<xsl:sort select="."/>
+			<ul>
+				<li>
+					<!-- Display the theme with numbered list -->
+					<xsl:number value="position()" format="1. "/>
+					<xsl:value-of select="."/>
+				</li>
+			</ul>
+		</xsl:for-each>
+	</xsl:template>
+
+	<!-- 
 		Step 10
 	 -->
 	 <xsl:template match="classes[@kind='project']">
@@ -139,18 +157,11 @@
 							 -->
                             <xsl:apply-templates select="course/information/media/image"/>
                         </p>
-						<!-- information about lecture -->
-						<!-- 
-							Step 9
-						 -->
-						<!-- Display information about laboratory -->
-                        <xsl:apply-templates select="course/classes"/>
 
 						<!-- 
 							Step 8
 						 -->
 						 <!-- Display information about lecture themes -->
-                        <h3>Lecture Themes</h3>
                         <ol>
                             <xsl:for-each select="course/classes[@kind='lecture']/component/theme">
                                 <xsl:sort select="."/>
@@ -160,6 +171,14 @@
                                 </li>
                             </xsl:for-each>
                         </ol>
+
+						<!-- information about lecture -->
+						<!-- 
+							Step 9
+						 -->
+						<!-- Display information about laboratory -->
+                        <xsl:apply-templates select="course/classes"/>
+
 
 						<!-- reference to a template that allows to display information about laboratory and project -->
 
