@@ -2,8 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="HiH.xslt"?>
 <course>
 	<author>
-		<name>student's name</name>
-		<surname>student's surname</surname>
+	<!-- 
+		Step 4
+	 -->
+		<name>Mateusz</name>
+		<surname>Wieczorek</surname>
 	</author>
 	<classes kind="lecture" >
 		<component id="1">
