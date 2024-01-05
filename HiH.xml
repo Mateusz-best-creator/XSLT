@@ -2,9 +2,6 @@
 <?xml-stylesheet type="text/xsl" href="HiH.xslt"?>
 <course>
 	<author>
-	<!-- 
-		Step 4
-	 -->
 		<name>Mateusz</name>
 		<surname>Wieczorek</surname>
 	</author>
@@ -39,7 +36,7 @@
 	<classes kind="project">
 		<component id="1">
 			<topic>C++</topic>
-			<score>2</score>
+			<score>5</score>
 		</component>
 		<component id="2">
 			<topic>Running</topic>
@@ -47,7 +44,7 @@
 		</component>
 		<component id="3">
 			<topic>Gym</topic>
-			<score>1</score>
+			<score>2</score>
 		</component>
 	</classes>
 	<information>

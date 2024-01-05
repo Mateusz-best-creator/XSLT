@@ -79,10 +79,10 @@
     <xsl:template name="navigationMenu">
         <nav>
             <ul>
-                <li class="nav-li"> <a class="nav-link" href="#lecture">Hobbies</a> </li>
-                <li class="nav-li"> <a class="nav-link" href="#lab">Images</a> </li>
-                <li class="nav-li"> <a class="nav-link" href="#project">Project</a> </li>
-                <li class="nav-li"> <a class="nav-link" href="#links">About me</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#hobbies">Hobbies</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#images">Images</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#detail">Hobbies In Detail</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#about">About Me</a> </li>
             </ul>
         </nav>
     </xsl:template>
@@ -105,7 +105,7 @@
 
 					<div id="content">
 						<div class="hobby-div">
-							<h3 id="lecture">Hobbies</h3>
+							<h3 id="hobbies">Hobbies</h3>
 							<p> My favourite hobbies. </p>
 							<ol>
 								<xsl:for-each select="course/classes[@kind='lecture']/component/theme">
@@ -115,7 +115,7 @@
 									</li>
 								</xsl:for-each>
 							</ol>
-							<div class="all-images">
+							<div id="images" class="all-images">
 								<xsl:apply-templates select="course/information/media/image1"/>
 								<xsl:apply-templates select="course/information/media/image2"/>
 								<xsl:apply-templates select="course/information/media/image3"/>
@@ -125,7 +125,7 @@
 
                         <xsl:apply-templates select="course/classes"/>
 						<div class="about-me">
-							<h3 id="links">Additional information about me</h3>
+							<h3 id="about">Additional information about me</h3>
 							<ul>
 								<xsl:apply-templates select="course/information/links"/>
 							</ul>
@@ -147,7 +147,7 @@
 	<xsl:template match="classes">
 		<xsl:if test="@kind='laboratory'">
 			<div class="lecture-div">
-				<h3 id="lab">In detail</h3>
+				<h3 id="detail">In detail</h3>
 				<p>My hobbies in detail</p>
 				<ol>
 					<xsl:apply-templates select="component"/>
