@@ -5,7 +5,7 @@
 		<name>Mateusz</name>
 		<surname>Wieczorek</surname>
 	</author>
-	<classes kind="lecture" >
+	<hobbies kind="general-list" >
 		<component id="1">
 			<topic>Hobbies</topic>
 			<theme>Gym</theme>
@@ -15,8 +15,8 @@
 			<theme>Python</theme>
 			<score>30</score>
 		</component>
-	</classes>
-	<classes kind="laboratory" obligatory="yes">
+	</hobbies>
+	<hobbies kind="hobbies-list" obligatory="yes">
 		<component id="1">
 			<topic>Sport Activites</topic>
 			<theme>Running</theme>
@@ -32,8 +32,8 @@
 			<theme>Learning Linux OS</theme>
 			<score>10</score>
 		</component>	
-	</classes>
-	<classes kind="project">
+	</hobbies>
+	<hobbies kind="hobbies-table">
 		<component id="1">
 			<topic>C++</topic>
 			<score>5</score>
@@ -46,7 +46,7 @@
 			<topic>Gym</topic>
 			<score>2</score>
 		</component>
-	</classes>
+	</hobbies>
 	<information>
 		<links>
 			<link source="https://github.com/Mateusz-best-creator">Github</link>

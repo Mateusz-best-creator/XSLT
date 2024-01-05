@@ -4,8 +4,8 @@
 >
     <xsl:output method="html" indent="yes"/>
 
-	<xsl:template match="theme[ancestor::classes/@kind='lecture']">
-		<xsl:for-each select="//classes[@kind='lecture']/component/theme">
+	<xsl:template match="theme[ancestor::hobbies/@kind='lecture']">
+		<xsl:for-each select="//hobbies[@kind='lecture']/component/theme">
 			<xsl:sort select="."/>
 			<ul>
 				<li>
@@ -15,8 +15,8 @@
 			</ul>
 		</xsl:for-each>
 	</xsl:template>
-	 <xsl:template match="classes[@kind='project']">
-	 	<div class="project-div">
+	 <xsl:template match="hobbies[@kind='hobbies-table']">
+	 	<div class="hobbies-div">
 			<h3>Informations about my hobbies.</h3>
 			<table style="width:50%; border: 1px solid black">
 				<tr>
@@ -28,7 +28,7 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="component[ancestor::classes/@kind='project']">
+	<xsl:template match="component[ancestor::hobbies/@kind='hobbies-table']">
 		<tr>
 			<td>
 				<xsl:value-of select="topic"/>
@@ -63,6 +63,9 @@
         <br />
     </xsl:template>
 
+	<xsl:template match="image1">
+		<img src="img/running.jpg" alt="Running" class="image1" title="{.}" />
+	</xsl:template>
 	<xsl:template match="image2">
 		<img src="img/python.jpg" alt="Python" class="image1" title="{.}" />
 	</xsl:template>
@@ -71,9 +74,6 @@
 	</xsl:template>
 	<xsl:template match="image4">
 		<img src="img/gym.jpg" alt="C" class="image1" title="{.}" />
-	</xsl:template>
-	<xsl:template match="image1">
-		<img src="img/running.jpg" alt="Running" class="image1" title="{.}" />
 	</xsl:template>
 
     <xsl:template name="navigationMenu">
@@ -108,7 +108,7 @@
 							<h3 id="hobbies">Hobbies</h3>
 							<p> My favourite hobbies. </p>
 							<ol>
-								<xsl:for-each select="course/classes[@kind='lecture']/component/theme">
+								<xsl:for-each select="course/hobbies[@kind='general-list']/component/theme">
 									<xsl:sort select="."/>
 									<li>
 										<xsl:value-of select="."/>
@@ -123,7 +123,7 @@
 							</div>
 						</div>
 
-                        <xsl:apply-templates select="course/classes"/>
+                        <xsl:apply-templates select="course/hobbies"/>
 						<div class="about-me">
 							<h3 id="about">Additional information about me</h3>
 							<ul>
@@ -144,8 +144,8 @@
 		Copyright 2019, <xsl:value-of select="name"/>_<xsl:value-of select="surname"/>
 	</xsl:template>
 
-	<xsl:template match="classes">
-		<xsl:if test="@kind='laboratory'">
+	<xsl:template match="hobbies">
+		<xsl:if test="@kind='hobbies-list'">
 			<div class="lecture-div">
 				<h3 id="detail">In detail</h3>
 				<p>My hobbies in detail</p>
