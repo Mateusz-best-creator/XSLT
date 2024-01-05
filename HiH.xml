@@ -10,13 +10,12 @@
 	</author>
 	<classes kind="lecture" >
 		<component id="1">
-			<topic>Hypertext and hypermedia</topic>
-			<theme>Hypertext &amp; hypermedia</theme>
-			<theme>HTML CSS</theme>
-			<theme>XML</theme>
-			<theme>XML Schema</theme>
-			<theme>DTD</theme>
-			<theme>XSLT</theme>
+			<topic>Hobbies</topic>
+			<theme>Gym</theme>
+			<theme>Running</theme>
+			<theme>C++</theme>
+			<theme>C</theme>
+			<theme>Python</theme>
 			<score>30</score>
 		</component>
 	</classes>
@@ -74,7 +73,10 @@
 			<link source="https://enauczanie.pg.edu.pl/moodle/">Moodle</link>
 		</links>
 		<media>
-			<image source="img/Vannevar-Bush.jpg">Vannevar Bush</image>
+			<image1 source="img/running.jpg">running</image1>
+			<image2 source="img/C__.jpg">C++</image2>
+			<image3 source="img/c.png">C</image3>
+			<image4 source="img/gym.jpg">gym</image4>
 		</media>
 	</information>
 </course>

@@ -102,12 +102,17 @@
         <xsl:apply-templates select="link[position() &gt; last() - 2]"/>
     </xsl:template>
 
-	<!-- 
-		Step 6
-	 -->
-	 <!-- Template for displaying images with class="right" -->
-    <xsl:template match="image">
-		<img src="img/Vannevar-Bush.jpg" alt="Vannevar Bush" class="right" title="{.}" />
+	<xsl:template match="image2">
+		<img src="img/C__.jpg" alt="C++" class="image1" title="{.}" />
+	</xsl:template>
+	<xsl:template match="image3">
+		<img src="img/c.png" alt="Gym" class="right image1" title="{.}" />
+	</xsl:template>
+	<xsl:template match="image4">
+		<img src="img/gym.jpg" alt="C" class="image1" title="{.}" />
+	</xsl:template>
+	<xsl:template match="image1">
+		<img src="img/running.jpg" alt="Running" class="image1" title="{.}" />
 	</xsl:template>
 
 	<!-- 
@@ -117,10 +122,10 @@
     <xsl:template name="navigationMenu">
         <nav>
             <ul>
-                <li> <a href="#lecture">Lecture</a> </li>
-                <li> <a href="#lab">Laboratory</a> </li>
-                <li> <a href="#project">Project</a> </li>
-                <li> <a href="#links">Links</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#lecture">Hobbies</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#lab">Images</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#project">Project</a> </li>
+                <li class="nav-li"> <a class="nav-link" href="#links">About me</a> </li>
             </ul>
         </nav>
     </xsl:template>
@@ -137,57 +142,34 @@
 			<body>
 				<div id="wrapper">
 					<header>
-						<h1>Hypertext hypermedia</h1>
+						<h1>My Hobby</h1>
 					</header>
-
-					<!-- menu for moving within a page -->
-					<!-- 
-						Step 5
-					 -->
 					<xsl:call-template name="navigationMenu"/>
 
 					<div id="content">
-                        <!-- Content ... -->
-                        <h3 id="lecture">Lecture</h3>
-                        <p>
-                            Information about the lecture.
-                            <!-- Reference to the template for displaying images -->
-							<!-- 
-								Step 6
-							 -->
-                            <xsl:apply-templates select="course/information/media/image"/>
-                        </p>
+						<div class="hobby-div">
+							<h3 id="lecture">Hobbies</h3>
+							<p> My favourite hobbies. </p>
+							<ol>
+								<xsl:for-each select="course/classes[@kind='lecture']/component/theme">
+									<xsl:sort select="."/>
+									<li>
+										<xsl:value-of select="."/>
+									</li>
+								</xsl:for-each>
+							</ol>
+							<div class="all-images">
+								<xsl:apply-templates select="course/information/media/image1"/>
+								<xsl:apply-templates select="course/information/media/image2"/>
+								<xsl:apply-templates select="course/information/media/image3"/>
+								<xsl:apply-templates select="course/information/media/image4"/>
+							</div>
+						</div>
 
-						<!-- 
-							Step 8
-						 -->
-						 <!-- Display information about lecture themes -->
-                        <ol>
-                            <xsl:for-each select="course/classes[@kind='lecture']/component/theme">
-                                <xsl:sort select="."/>
-                                <li>
-                                    <!-- Remove xsl:number to avoid nested numbering -->
-                                    <xsl:value-of select="."/>
-                                </li>
-                            </xsl:for-each>
-                        </ol>
-
-						<!-- information about lecture -->
-						<!-- 
-							Step 9
-						 -->
-						<!-- Display information about laboratory -->
                         <xsl:apply-templates select="course/classes"/>
 
-
-						<!-- reference to a template that allows to display information about laboratory and project -->
-
-
-						<h3 id="links">Additional information about HTML and XML</h3>
+						<h3 id="links">Additional information about me</h3>
 						<ul>
-						<!-- 
-							Step 7
-						 -->
 							 <xsl:apply-templates select="course/information/links"/>
 						</ul>
 
@@ -223,48 +205,4 @@
 			</ol>
 		</xsl:if>
 	</xsl:template>
-
-
-
-<!--
-		<nav>
-			<ul>
-				<li> <a href="#lecture">Lecture</a> </li>
-				<li> <a href="#lab">Laboratory</a> 	</li>
-				<li> <a href="#project">Project</a> </li>
-				<li> <a href="#links">Links</a> 		</li>
-			</ul>
-		</nav>	
-	</xsl:template>
--->
-
-<!--
-				<h3 id="lab">Laboratory</h3>
-				<p>
-				Information about the laboratory.
-				</p>	
-				<ol>
-					<li>......
-						<ul>
-							<li>...... </li>
-						</ul>
-					</li>
-
-				</ol>
--->
-
-<!--
-			<h3 id="project">Project</h3>
-			<p>
-				Information about the project.
-			</p>
-			<table style="width:50%; border: 5px solid red">
-				<tr>
-					<th>Title of the project</th>
-					<th>Score</th>
-				</tr>
-				
-			</table>
--->
-
 </xsl:stylesheet>
