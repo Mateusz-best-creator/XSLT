@@ -4,46 +4,30 @@
 >
     <xsl:output method="html" indent="yes"/>
 
-	<!-- 
-		Step 8
-	 -->
-	 <!-- Template for lecture themes -->
 	<xsl:template match="theme[ancestor::classes/@kind='lecture']">
 		<xsl:for-each select="//classes[@kind='lecture']/component/theme">
-			<!-- Sort the themes alphabetically -->
 			<xsl:sort select="."/>
 			<ul>
 				<li>
-					<!-- Display the theme with numbered list -->
 					<xsl:number value="position()" format="1. "/>
 					<xsl:value-of select="."/>
 				</li>
 			</ul>
 		</xsl:for-each>
 	</xsl:template>
-
-	<!-- 
-		Step 10
-	 -->
 	 <xsl:template match="classes[@kind='project']">
-		<h3 id="project">Project</h3>
-		<p>
-			Information about the project.
-		</p>
-		<table style="width:50%; border: 1px solid black">
-			<tr>
-				<th>Title of the project</th>
-				<th>Score</th>
-			</tr>
-			<!-- Apply the template for component elements -->
-			<xsl:apply-templates select="component"/>
-		</table>
+	 	<div class="project-div">
+			<h3>Informations about my hobbies.</h3>
+			<table style="width:50%; border: 1px solid black">
+				<tr>
+					<th>Name of the hobby</th>
+					<th>Hours spend in a day</th>
+				</tr>
+				<xsl:apply-templates select="component"/>
+			</table>
+		</div>
 	</xsl:template>
 
-	<!-- 
-		Step 10
-	 -->
-	 <!-- Adjusted Template for Component Element -->
 	<xsl:template match="component[ancestor::classes/@kind='project']">
 		<tr>
 			<td>
@@ -55,25 +39,15 @@
 		</tr>
 	</xsl:template>
 
-
-	<!-- 
-		Step 9
-	 -->
-	 <!-- Template for component element -->
 	<xsl:template match="component">
 		<li>
 			<h3>
 				<xsl:value-of select="topic"/>
 			</h3>
-			<!-- Apply the template for theme elements -->
 			<xsl:apply-templates select="theme"/>
 		</li>
 	</xsl:template>
 
-	<!-- 
-		Step 9
-	 -->
-	 <!-- Template for theme element -->
 	<xsl:template match="theme">
 		<ul>
 			<li>
@@ -82,11 +56,6 @@
 		</ul>
 	</xsl:template>
 
-
-	<!-- 
-		Step 7
-	 -->
-	 <!-- Template for the link element -->
     <xsl:template match="link">
         <a href="{@source}" target="_blank">
             <xsl:value-of select="."/>
@@ -94,16 +63,8 @@
         <br />
     </xsl:template>
 
-	<!-- 
-		Step 7
-	 -->
-	 <!-- Template to display only the last two links -->
-    <xsl:template match="links">
-        <xsl:apply-templates select="link[position() &gt; last() - 2]"/>
-    </xsl:template>
-
 	<xsl:template match="image2">
-		<img src="img/C__.jpg" alt="C++" class="image1" title="{.}" />
+		<img src="img/python.jpg" alt="Python" class="image1" title="{.}" />
 	</xsl:template>
 	<xsl:template match="image3">
 		<img src="img/c.png" alt="Gym" class="right image1" title="{.}" />
@@ -115,10 +76,6 @@
 		<img src="img/running.jpg" alt="Running" class="image1" title="{.}" />
 	</xsl:template>
 
-	<!-- 
-		Step 5
-	 -->
-	<!-- Named template for page navigation menu -->
     <xsl:template name="navigationMenu">
         <nav>
             <ul>
@@ -167,18 +124,16 @@
 						</div>
 
                         <xsl:apply-templates select="course/classes"/>
-
-						<h3 id="links">Additional information about me</h3>
-						<ul>
-							 <xsl:apply-templates select="course/information/links"/>
-						</ul>
-
+						<div class="about-me">
+							<h3 id="links">Additional information about me</h3>
+							<ul>
+								<xsl:apply-templates select="course/information/links"/>
+							</ul>
+						</div>
 					</div>
-					<!-- end content -->
 				</div>
-				<!-- end wrapper -->
 				<footer>
-					<xsl:apply-templates select="course/author"/> <!-- reference to a template that allows for displaying information about the name and surname of the student -->
+					<xsl:apply-templates select="course/author"/>
 				</footer>
 			</body>
 		</html>
@@ -186,23 +141,18 @@
 	</xsl:template>
 
 	<xsl:template match="author">
-	<!-- Step 4 -->
 		Copyright 2019, <xsl:value-of select="name"/>_<xsl:value-of select="surname"/>
 	</xsl:template>
 
-	<!-- 
-		Step 9
-	 -->
 	<xsl:template match="classes">
 		<xsl:if test="@kind='laboratory'">
-			<h3 id="lab">Laboratory</h3>
-			<p>
-				Information about the laboratory.
-			</p>
-			<ol>
-				<!-- Apply the template for component elements -->
-				<xsl:apply-templates select="component"/>
-			</ol>
+			<div class="lecture-div">
+				<h3 id="lab">In detail</h3>
+				<p>My hobbies in detail</p>
+				<ol>
+					<xsl:apply-templates select="component"/>
+				</ol>
+			</div>
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
