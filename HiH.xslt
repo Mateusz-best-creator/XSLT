@@ -4,6 +4,20 @@
 >
     <xsl:output method="html" indent="yes"/>
 
+	<xsl:variable name="hobbies_info" select="'Informations about my hobbies.'"/>
+	<xsl:variable name="hobbies_ranking" select="'Ranking of my hobbies.'"/>
+	<xsl:variable name="hobbies_future" select="'Hobbies for the future.'"/>
+	<xsl:variable name="books" select="/library/book"/>
+    <xsl:variable name="programmingBooks" select="$books[category='Programming']"/>
+    <xsl:variable name="dataAnalysisBooks" select="$books[category='Data Analysis']"/>
+
+	<xsl:template match="book">
+        <li>
+            <h3><xsl:value-of select="title"/></h3>
+            <p>Author: <xsl:value-of select="author"/></p>
+            <p>Category: <xsl:value-of select="category"/></p>
+        </li>
+    </xsl:template>
 	<xsl:template match="theme[ancestor::hobbies/@kind='lecture']">
 		<xsl:for-each select="//hobbies[@kind='lecture']/component/theme">
 			<xsl:sort select="."/>
@@ -17,7 +31,7 @@
 	</xsl:template>
 	 <xsl:template match="hobbies[@kind='hobbies-table']">
 	 	<div class="hobbies-div">
-			<h3>Informations about my hobbies.</h3>
+			<h3><xsl:value-of select="$hobbies_info"/></h3>
 			<table style="width:50%; border: 1px solid black">
 				<tr>
 					<th>Name of the hobby</th>
@@ -27,8 +41,77 @@
 			</table>
 		</div>
 	</xsl:template>
+	<xsl:template match="hobbies[@kind='hobbies-ranked']">
+	 	<div class="hobbies-div">
+			<h3><xsl:value-of select="$hobbies_ranking"/></h3>
+			<table style="width:50%; border: 1px solid black">
+				<tr>
+					<th>Name of the hobby</th>
+					<th>How much I love it</th>
+				</tr>
+				<xsl:apply-templates select="component"/>
+			</table>
+		</div>
+	</xsl:template>
+	<xsl:template match="hobbies[@kind='hobbies-time']">
+	 	<div class="hobbies-div">
+			<h3>How long I do each of my hobbies.</h3>
+			<table style="width:50%; border: 1px solid black">
+				<tr>
+					<th>Name of the hobby</th>
+					<th>How long I do this</th>
+				</tr>
+				<xsl:apply-templates select="component"/>
+			</table>
+		</div>
+	</xsl:template>
+	<xsl:template match="hobbies[@kind='hobbies-future']">
+	 	<div class="hobbies-div">
+			<h3><xsl:value-of select="$hobbies_future"/></h3>
+			<table style="width:50%; border: 1px solid black">
+				<tr>
+					<th>Name of the hobby</th>
+					<th>When I will start it</th>
+				</tr>
+				<xsl:apply-templates select="component"/>
+			</table>
+		</div>
+	</xsl:template>
 
 	<xsl:template match="component[ancestor::hobbies/@kind='hobbies-table']">
+		<tr>
+			<td>
+				<xsl:value-of select="topic"/>
+			</td>
+			<td>
+				<xsl:value-of select="score"/>
+			</td>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="component[ancestor::hobbies/@kind='hobbies-ranked']">
+		<tr>
+			<td>
+				<xsl:value-of select="topic"/>
+			</td>
+			<td>
+				<xsl:value-of select="score"/>
+			</td>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="component[ancestor::hobbies/@kind='hobbies-time']">
+		<tr>
+			<td>
+				<xsl:value-of select="topic"/>
+			</td>
+			<td>
+				<xsl:value-of select="score"/>
+			</td>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="component[ancestor::hobbies/@kind='hobbies-future']">
 		<tr>
 			<td>
 				<xsl:value-of select="topic"/>
@@ -130,6 +213,19 @@
 								<xsl:apply-templates select="course/information/links"/>
 							</ul>
 						</div>
+						<ul>
+								<xsl:apply-templates select="$books"/>
+							</ul>
+
+							<h2>Programming Books:</h2>
+							<ul>
+								<xsl:apply-templates select="$programmingBooks"/>
+							</ul>
+
+							<h2>Data Analysis Books:</h2>
+							<ul>
+								<xsl:apply-templates select="$dataAnalysisBooks"/>
+							</ul>
 					</div>
 				</div>
 				<footer>
@@ -149,6 +245,24 @@
 			<div class="lecture-div">
 				<h3 id="detail">In detail</h3>
 				<p>My hobbies in detail</p>
+				<ol>
+					<xsl:apply-templates select="component"/>
+				</ol>
+			</div>
+		</xsl:if>
+		<xsl:if test="@kind='hobbies-time'">
+			<div class="case2-container">
+				<h3>Case 2: display hobbies not in detail</h3>
+				<p>This is the content hobbies not in detail</p>
+				<ol>
+					<xsl:apply-templates select="component"/>
+				</ol>
+			</div>
+		</xsl:if>
+		<xsl:if test="@kind='hobbies-general'">
+			<div class="default-container">
+				<h3>Default Case</h3>
+				<p>This is the default conten for all hobbies.</p>
 				<ol>
 					<xsl:apply-templates select="component"/>
 				</ol>

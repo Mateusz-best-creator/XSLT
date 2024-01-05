@@ -16,6 +16,17 @@
 			<score>30</score>
 		</component>
 	</hobbies>
+	<hobbies kind="favourite-hobby" >
+		<component id="1">
+			<topic>Hobbies</topic>
+			<theme>Gym</theme>
+			<theme>Running</theme>
+			<theme>C++</theme>
+			<theme>C</theme>
+			<theme>Python</theme>
+			<score>30</score>
+		</component>
+	</hobbies>
 	<hobbies kind="hobbies-list" obligatory="yes">
 		<component id="1">
 			<topic>Sport Activites</topic>
@@ -47,6 +58,60 @@
 			<score>2</score>
 		</component>
 	</hobbies>
+	<hobbies kind="hobbies-ranked">
+		<component id="1">
+			<topic>Running</topic>
+			<score>Love it</score>
+		</component>
+		<component id="2">
+			<topic>Gym</topic>
+			<score>Like it</score>
+		</component>
+		<component id="3">
+			<topic>C++</topic>
+			<score>Like it</score>
+		</component>
+	</hobbies>
+	<hobbies kind="hobbies-time">
+		<component id="1">
+			<topic>Running</topic>
+			<score>2 years</score>
+		</component>
+		<component id="2">
+			<topic>Gym</topic>
+			<score>2 years</score>
+		</component>
+		<component id="3">
+			<topic>C++</topic>
+			<score>5 months</score>
+		</component>
+	</hobbies>
+	<hobbies kind="hobbies-future">
+		<component id="1">
+			<topic>Machine Learning</topic>
+			<score>After getting a job as a developer</score>
+		</component>
+		<component id="2">
+			<topic>Tennis</topic>
+			<score>When I get rich</score>
+		</component>
+		<component id="3">
+			<topic>Establish company</topic>
+			<score>When I will be hardwork enough</score>
+		</component>
+	</hobbies>
+	<library>
+		<book>
+			<title>Hands on Machine Learning</title>
+			<author>Aurelien Geron</author>
+			<category>Programming</category>
+		</book>
+		<book>
+			<title>Python for data analysis</title>
+			<author>McKinney</author>
+			<category>Data Analysis</category>
+		</book>
+	</library>
 	<information>
 		<links>
 			<link source="https://github.com/Mateusz-best-creator">Github</link>
