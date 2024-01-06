@@ -107,12 +107,12 @@
 			<category>ML</category>
 		</book>
 		<book>
-			<title>Python</title>
+			<title>Learning Python</title>
 			<author>Jakub Marchewka</author>
 			<category>Python</category>
 		</book>
 		<book>
-			<title>C++</title>
+			<title>Learning C++</title>
 			<author>Stephen Prata</author>
 			<category>C++</category>
 		</book>
