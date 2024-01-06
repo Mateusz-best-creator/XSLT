@@ -104,7 +104,17 @@
 		<book>
 			<title>Hands on Machine Learning</title>
 			<author>Aurelien Geron</author>
-			<category>Programming</category>
+			<category>ML</category>
+		</book>
+		<book>
+			<title>Python</title>
+			<author>Jakub Marchewka</author>
+			<category>Python</category>
+		</book>
+		<book>
+			<title>C++</title>
+			<author>Stephen Prata</author>
+			<category>C++</category>
 		</book>
 		<book>
 			<title>Python for data analysis</title>
