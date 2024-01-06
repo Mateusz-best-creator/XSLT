@@ -12,6 +12,12 @@
 	<xsl:variable name="dataAnalysisBooks" select="$books[substring(category, string-length(category) - 
 	string-length('Data Analysis') + 1) = 'Data Analysis']"/>
 
+	<xsl:variable name="time1" select="6.65"/>
+	<xsl:variable name="time2" select="4.135"/>
+	<xsl:variable name="formattedTime1" select="format-number($time1, '00:00:00.00')"/>
+	<xsl:variable name="formattedTime2" select="format-number($time2, '00:00:00')"/>
+
+
 	<xsl:template match="book">
         <li>
             <h3><xsl:value-of select="title"/></h3>
@@ -210,11 +216,13 @@
 							<h2>Programming Books:</h2>
 							<ul>
 								<xsl:apply-templates select="$programmingBooks"/>
+								<p>Time in months to read it: <xsl:value-of select="$formattedTime1"/></p>
 							</ul>
 
 							<h2>Data Analysis Books:</h2>
 							<ul>
 								<xsl:apply-templates select="$dataAnalysisBooks"/>
+								<p>Time in months to read it: <xsl:value-of select="$formattedTime2"/></p>
 							</ul>
 						</div>
 					</div>
