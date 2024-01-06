@@ -7,7 +7,7 @@
 	<xsl:variable name="hobbies_info" select="'Informations about my hobbies.'"/>
 	<xsl:variable name="hobbies_ranking" select="'Ranking of my hobbies.'"/>
 	<xsl:variable name="hobbies_future" select="'Hobbies for the future.'"/>
-	<xsl:variable name="books" select="/library/book"/>
+	<xsl:variable name="books" select="//library/book"/>
     <xsl:variable name="programmingBooks" select="$books[category='Programming']"/>
     <xsl:variable name="dataAnalysisBooks" select="$books[category='Data Analysis']"/>
 
@@ -213,10 +213,7 @@
 								<xsl:apply-templates select="course/information/links"/>
 							</ul>
 						</div>
-						<ul>
-								<xsl:apply-templates select="$books"/>
-							</ul>
-
+						<div class="programming-books">
 							<h2>Programming Books:</h2>
 							<ul>
 								<xsl:apply-templates select="$programmingBooks"/>
@@ -226,6 +223,7 @@
 							<ul>
 								<xsl:apply-templates select="$dataAnalysisBooks"/>
 							</ul>
+						</div>
 					</div>
 				</div>
 				<footer>
@@ -252,8 +250,8 @@
 		</xsl:if>
 		<xsl:if test="@kind='hobbies-time'">
 			<div class="case2-container">
-				<h3>Case 2: display hobbies not in detail</h3>
-				<p>This is the content hobbies not in detail</p>
+				<h3>Time for each hobby</h3>
+				<p>This is the table that shows how much time I spent on each hobby</p>
 				<ol>
 					<xsl:apply-templates select="component"/>
 				</ol>
@@ -261,8 +259,8 @@
 		</xsl:if>
 		<xsl:if test="@kind='hobbies-general'">
 			<div class="default-container">
-				<h3>Default Case</h3>
-				<p>This is the default conten for all hobbies.</p>
+				<h3>My hobbies in general</h3>
+				<p>This is the general description for all hobbies.</p>
 				<ol>
 					<xsl:apply-templates select="component"/>
 				</ol>
