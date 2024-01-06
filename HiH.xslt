@@ -125,6 +125,7 @@
 	<xsl:template match="theme">
 		<ul>
 			<li>
+				<xsl:number format="1. "/>
 				<xsl:value-of select="."/>
 			</li>
 		</ul>
@@ -181,14 +182,15 @@
 						<div class="hobby-div">
 							<h3 id="hobbies">Hobbies</h3>
 							<p> My favourite hobbies. </p>
-							<ol>
+							<ul>
 								<xsl:for-each select="course/hobbies[@kind='general-list']/component/theme">
 									<xsl:sort select="."/>
 									<li>
+										<xsl:number level="any" format="1. "/>
 										<xsl:value-of select="."/>
 									</li>
 								</xsl:for-each>
-							</ol>
+							</ul>
 							<div id="images" class="all-images">
 								<xsl:apply-templates select="course/information/media/image1"/>
 								<xsl:apply-templates select="course/information/media/image2"/>
