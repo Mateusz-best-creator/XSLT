@@ -8,8 +8,9 @@
 	<xsl:variable name="hobbies_ranking" select="'Ranking of my hobbies.'"/>
 	<xsl:variable name="hobbies_future" select="'Hobbies for the future.'"/>
 	<xsl:variable name="books" select="//library/book"/>
-    <xsl:variable name="programmingBooks" select="$books[category='Programming']"/>
-    <xsl:variable name="dataAnalysisBooks" select="$books[category='Data Analysis']"/>
+    <xsl:variable name="programmingBooks" select="$books[starts-with(category, 'Programming')]"/>
+	<xsl:variable name="dataAnalysisBooks" select="$books[substring(category, string-length(category) - 
+	string-length('Data Analysis') + 1) = 'Data Analysis']"/>
 
 	<xsl:template match="book">
         <li>
@@ -18,17 +19,7 @@
             <p>Category: <xsl:value-of select="category"/></p>
         </li>
     </xsl:template>
-	<xsl:template match="theme[ancestor::hobbies/@kind='lecture']">
-		<xsl:for-each select="//hobbies[@kind='lecture']/component/theme">
-			<xsl:sort select="."/>
-			<ul>
-				<li>
-					<xsl:number value="position()" format="1. "/>
-					<xsl:value-of select="."/>
-				</li>
-			</ul>
-		</xsl:for-each>
-	</xsl:template>
+	
 	 <xsl:template match="hobbies[@kind='hobbies-table']">
 	 	<div class="hobbies-div">
 			<h3><xsl:value-of select="$hobbies_info"/></h3>
@@ -257,8 +248,8 @@
 				</ol>
 			</div>
 		</xsl:if>
-		<xsl:if test="@kind='hobbies-general'">
-			<div class="default-container">
+		<xsl:if test="not(@kind='hobbies-list') and (@kind='hobbies-time')">
+			<div class="general-container">
 				<h3>My hobbies in general</h3>
 				<p>This is the general description for all hobbies.</p>
 				<ol>
